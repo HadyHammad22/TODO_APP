@@ -19,7 +19,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ap-FD-xo6" customClass="NoteField" customModule="MyNoteApp" customModuleProvider="target">
                                 <rect key="frame" x="15" y="89" width="384" height="40"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nTw-BK-sCu"/>
                                 </constraints>
@@ -45,12 +45,12 @@
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eBp-Ve-Tbk">
                                         <rect key="frame" x="8" y="8" width="368" height="334"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93720912933349609" green="0.93794280290603638" blue="0.95681291818618774" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="Aag-ih-Pbl"/>
                                     <constraint firstAttribute="trailing" secondItem="eBp-Ve-Tbk" secondAttribute="trailing" constant="8" id="BlE-eW-oFJ"/>
@@ -107,6 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="cnG-vg-j8d" id="XzO-J1-jYE"/>
                         <outlet property="noteText" destination="eBp-Ve-Tbk" id="D0A-XH-LK3"/>
                         <outlet property="noteTitle" destination="3ap-FD-xo6" id="vjy-dF-G5M"/>
                         <outlet property="title" destination="3ap-FD-xo6" id="Td1-T9-jb6"/>
@@ -139,22 +140,22 @@
                                                     <rect key="frame" x="10" y="14.999999999999986" width="394" height="246.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYh-Sm-Tlv">
-                                                            <rect key="frame" x="8" y="5" width="378" height="24"/>
-                                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                                            <rect key="frame" x="12" y="8" width="370" height="34.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9f8-72-JYs">
-                                                            <rect key="frame" x="8" y="39" width="378" height="150"/>
+                                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9f8-72-JYs">
+                                                            <rect key="frame" x="12" y="52.333333333333329" width="370" height="145"/>
                                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="150" id="kJV-fq-jNO"/>
+                                                                <constraint firstAttribute="height" constant="145" id="kJV-fq-jNO"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-XD-d57">
-                                                            <rect key="frame" x="258" y="199" width="128" height="30"/>
+                                                            <rect key="frame" x="254" y="207.33333333333334" width="128" height="30"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fl-ke-Xnz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
@@ -183,8 +184,8 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEb-lq-Ahi">
-                                                            <rect key="frame" x="8" y="199" width="32.333333333333336" height="16.333333333333343"/>
-                                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                                                            <rect key="frame" x="12" y="207.33333333333334" width="37.666666666666664" height="20.666666666666657"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -192,18 +193,23 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="fRf-XD-d57" firstAttribute="top" secondItem="9f8-72-JYs" secondAttribute="bottom" constant="10" id="05b-qs-4Il"/>
-                                                        <constraint firstItem="bEb-lq-Ahi" firstAttribute="leading" secondItem="Shx-35-IIp" secondAttribute="leading" constant="8" id="3ws-d9-nad"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fRf-XD-d57" secondAttribute="trailing" constant="8" id="6EB-Wd-gEY"/>
+                                                        <constraint firstItem="bEb-lq-Ahi" firstAttribute="leading" secondItem="Shx-35-IIp" secondAttribute="leading" constant="12" id="3ws-d9-nad"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fRf-XD-d57" secondAttribute="trailing" constant="12" id="6EB-Wd-gEY"/>
                                                         <constraint firstItem="9f8-72-JYs" firstAttribute="trailing" secondItem="fRf-XD-d57" secondAttribute="trailing" id="AO8-Ky-cbO"/>
                                                         <constraint firstItem="9f8-72-JYs" firstAttribute="centerX" secondItem="Shx-35-IIp" secondAttribute="centerX" id="CdZ-Vf-5bk"/>
-                                                        <constraint firstAttribute="trailing" secondItem="eYh-Sm-Tlv" secondAttribute="trailing" constant="8" id="Kdy-KK-ehJ"/>
-                                                        <constraint firstItem="9f8-72-JYs" firstAttribute="leading" secondItem="Shx-35-IIp" secondAttribute="leading" constant="8" id="XRo-3H-m7h"/>
-                                                        <constraint firstItem="eYh-Sm-Tlv" firstAttribute="top" secondItem="Shx-35-IIp" secondAttribute="top" constant="5" id="gC4-ha-Jd3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eYh-Sm-Tlv" secondAttribute="trailing" constant="12" id="Kdy-KK-ehJ"/>
+                                                        <constraint firstItem="9f8-72-JYs" firstAttribute="leading" secondItem="Shx-35-IIp" secondAttribute="leading" constant="12" id="XRo-3H-m7h"/>
+                                                        <constraint firstItem="eYh-Sm-Tlv" firstAttribute="top" secondItem="Shx-35-IIp" secondAttribute="top" constant="8" id="gC4-ha-Jd3"/>
                                                         <constraint firstItem="bEb-lq-Ahi" firstAttribute="top" secondItem="9f8-72-JYs" secondAttribute="bottom" constant="10" id="hgm-Rp-Jcw"/>
                                                         <constraint firstItem="9f8-72-JYs" firstAttribute="top" secondItem="eYh-Sm-Tlv" secondAttribute="bottom" constant="10" id="hhY-xu-kN8"/>
-                                                        <constraint firstAttribute="trailing" secondItem="9f8-72-JYs" secondAttribute="trailing" constant="8" id="rf7-tV-fQL"/>
-                                                        <constraint firstItem="eYh-Sm-Tlv" firstAttribute="leading" secondItem="Shx-35-IIp" secondAttribute="leading" constant="8" id="xOB-40-FEW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9f8-72-JYs" secondAttribute="trailing" constant="12" id="rf7-tV-fQL"/>
+                                                        <constraint firstItem="eYh-Sm-Tlv" firstAttribute="leading" secondItem="Shx-35-IIp" secondAttribute="leading" constant="12" id="xOB-40-FEW"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,7 +234,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLw-fS-3bd">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Notes" id="B8b-xv-OQ5">
+                                    <navigationItem title="All Notes" id="B8b-xv-OQ5">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FFa-Z1-iSr">
                                             <connections>
                                                 <action selector="buAdd:" destination="ZWH-JD-Ohp" id="DXC-b6-6Cs"/>
