@@ -26,6 +26,15 @@ class MakeNote: UIViewController {
     
     @IBAction func buSave(_ sender: Any) {
         
+        if noteTitle.text == ""{
+            AlertView.instance.showAlert(title: "Failure", message: "Title should filled", alertType: .failure)
+            return
+        }
+        
+        if noteText.text == ""{
+            AlertView.instance.showAlert(title: "Failure", message: "Note text should filled", alertType: .failure)
+            return
+        }
         var newNote:Note?
         
         if let note = editedNote{
@@ -33,18 +42,16 @@ class MakeNote: UIViewController {
         }else{
             newNote = Note(context: context)
         }
-        
+
         newNote?.title = noteTitle.text
         newNote?.details = noteText.text
         newNote?.date_save = NSDate() as Date
         
         ad.saveContext()
         noteTitle.text = ""
-        noteText.text = ""  
+        noteText.text = ""
+        AlertView.instance.showAlert(title: "Success", message: "Note Added Successufully", alertType: .success)
+        
     }
-    @IBAction func buBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
 }
 

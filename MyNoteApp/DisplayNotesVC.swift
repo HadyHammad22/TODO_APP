@@ -22,12 +22,15 @@ class DisplayNotesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         notesTable.dataSource=self
         
     }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listOfNotes.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NotesCell
         cell.setNotes(note: listOfNotes[indexPath.row])
@@ -40,6 +43,7 @@ class DisplayNotesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 270
     }
@@ -52,9 +56,7 @@ class DisplayNotesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     @objc func buEditPress(_ sender:UIButton){
-        performSegue(withIdentifier: "EditOrAddSegway", sender: listOfNotes[sender.tag])
-        
-        
+        performSegue(withIdentifier: "EditOrAddSegway", sender: listOfNotes[sender.tag]) 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditOrAddSegway"{
@@ -80,6 +82,4 @@ class DisplayNotesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
     }
-    
-    
 }

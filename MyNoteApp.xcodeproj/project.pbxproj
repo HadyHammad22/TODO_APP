@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		749CA48523144AEF00C2E28A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CA48323144AEF00C2E28A /* AlertView.swift */; };
+		749CA48623144AEF00C2E28A /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749CA48423144AEF00C2E28A /* AlertView.xib */; };
 		74C3AC5E23131F3300CD4C1A /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC5D23131F3300CD4C1A /* NoteView.swift */; };
 		74C3AC6123131FBB00CD4C1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC6023131FBB00CD4C1A /* Constants.swift */; };
 		74C3AC6323132CA300CD4C1A /* NoteField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC6223132CA300CD4C1A /* NoteField.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		749CA48323144AEF00C2E28A /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		749CA48423144AEF00C2E28A /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		74C3AC5D23131F3300CD4C1A /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		74C3AC6023131FBB00CD4C1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		74C3AC6223132CA300CD4C1A /* NoteField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteField.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		740AC5DA2313D13200F145A9 /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				749CA48323144AEF00C2E28A /* AlertView.swift */,
+				749CA48423144AEF00C2E28A /* AlertView.xib */,
+			);
+			path = CustomAlert;
+			sourceTree = "<group>";
+		};
 		74C3AC5F23131F4800CD4C1A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +89,7 @@
 		74FBBFED21FDDA4E00E8443F /* MyNoteApp */ = {
 			isa = PBXGroup;
 			children = (
+				740AC5DA2313D13200F145A9 /* CustomAlert */,
 				74C3AC5F23131F4800CD4C1A /* Utilities */,
 				74FBC00A21FE245F00E8443F /* Controller */,
 				74FBC00921FE245600E8443F /* View */,
@@ -176,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FBBFFC21FDDA5200E8443F /* LaunchScreen.storyboard in Resources */,
+				749CA48623144AEF00C2E28A /* AlertView.xib in Resources */,
 				74FBBFF921FDDA5200E8443F /* Assets.xcassets in Resources */,
 				74FBBFF421FDDA4E00E8443F /* Main.storyboard in Resources */,
 			);
@@ -193,6 +208,7 @@
 				74C3AC5E23131F3300CD4C1A /* NoteView.swift in Sources */,
 				74FBBFF121FDDA4E00E8443F /* MakeNote.swift in Sources */,
 				74C3AC6323132CA300CD4C1A /* NoteField.swift in Sources */,
+				749CA48523144AEF00C2E28A /* AlertView.swift in Sources */,
 				74C3AC6123131FBB00CD4C1A /* Constants.swift in Sources */,
 				74FBBFEF21FDDA4E00E8443F /* AppDelegate.swift in Sources */,
 				74C3AC6523132F1700CD4C1A /* NoteButton.swift in Sources */,

@@ -33,8 +33,7 @@
                                     <navigationItem title="Add Note" id="2PS-4O-8jZ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="RwX-Ps-za9">
                                             <connections>
-                                                <action selector="buBack:" destination="BYZ-38-t0r" id="cKO-tS-ATh"/>
-                                                <segue destination="ZWH-JD-Ohp" kind="show" id="kFn-lw-4ev"/>
+                                                <segue destination="ZWH-JD-Ohp" kind="show" id="5hk-jv-aQg"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -120,7 +119,7 @@
         <!--Display NotesVC-->
         <scene sceneID="GJv-29-DKm">
             <objects>
-                <viewController id="ZWH-JD-Ohp" customClass="DisplayNotesVC" customModule="MyNoteApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisplayNotesVC" id="ZWH-JD-Ohp" customClass="DisplayNotesVC" customModule="MyNoteApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6AW-V1-tGk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
