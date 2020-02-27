@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		749CA48523144AEF00C2E28A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CA48323144AEF00C2E28A /* AlertView.swift */; };
 		749CA48623144AEF00C2E28A /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749CA48423144AEF00C2E28A /* AlertView.xib */; };
-		74C3AC5E23131F3300CD4C1A /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC5D23131F3300CD4C1A /* NoteView.swift */; };
 		74C3AC6123131FBB00CD4C1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC6023131FBB00CD4C1A /* Constants.swift */; };
-		74C3AC6323132CA300CD4C1A /* NoteField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC6223132CA300CD4C1A /* NoteField.swift */; };
 		74C3AC6523132F1700CD4C1A /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AC6423132F1700CD4C1A /* NoteButton.swift */; };
 		74D89F34231307CB00F5B357 /* DisplayNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D89F33231307CB00F5B357 /* DisplayNotesVC.swift */; };
+		74EDA65824084A4F00E11392 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EDA65724084A4F00E11392 /* Date.swift */; };
 		74FBBFEF21FDDA4E00E8443F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FBBFEE21FDDA4E00E8443F /* AppDelegate.swift */; };
 		74FBBFF121FDDA4E00E8443F /* MakeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FBBFF021FDDA4E00E8443F /* MakeNote.swift */; };
 		74FBBFF421FDDA4E00E8443F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74FBBFF221FDDA4E00E8443F /* Main.storyboard */; };
@@ -26,11 +25,10 @@
 /* Begin PBXFileReference section */
 		749CA48323144AEF00C2E28A /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		749CA48423144AEF00C2E28A /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
-		74C3AC5D23131F3300CD4C1A /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		74C3AC6023131FBB00CD4C1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		74C3AC6223132CA300CD4C1A /* NoteField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteField.swift; sourceTree = "<group>"; };
 		74C3AC6423132F1700CD4C1A /* NoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		74D89F33231307CB00F5B357 /* DisplayNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayNotesVC.swift; path = ../DisplayNotesVC.swift; sourceTree = "<group>"; };
+		74EDA65724084A4F00E11392 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		74FBBFEB21FDDA4E00E8443F /* MyNoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBBFEE21FDDA4E00E8443F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74FBBFF021FDDA4E00E8443F /* MakeNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNote.swift; sourceTree = "<group>"; };
@@ -70,6 +68,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		74EDA656240849F500E11392 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74EDA65724084A4F00E11392 /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		74FBBFE221FDDA4E00E8443F = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +95,7 @@
 		74FBBFED21FDDA4E00E8443F /* MyNoteApp */ = {
 			isa = PBXGroup;
 			children = (
+				74EDA656240849F500E11392 /* Extensions */,
 				740AC5DA2313D13200F145A9 /* CustomAlert */,
 				74C3AC5F23131F4800CD4C1A /* Utilities */,
 				74FBC00A21FE245F00E8443F /* Controller */,
@@ -115,8 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				74FBC00B21FE379500E8443F /* NotesCell.swift */,
-				74C3AC5D23131F3300CD4C1A /* NoteView.swift */,
-				74C3AC6223132CA300CD4C1A /* NoteField.swift */,
 				74C3AC6423132F1700CD4C1A /* NoteButton.swift */,
 			);
 			path = View;
@@ -205,13 +210,12 @@
 			files = (
 				74D89F34231307CB00F5B357 /* DisplayNotesVC.swift in Sources */,
 				74FBBFF721FDDA4E00E8443F /* MyNoteApp.xcdatamodeld in Sources */,
-				74C3AC5E23131F3300CD4C1A /* NoteView.swift in Sources */,
 				74FBBFF121FDDA4E00E8443F /* MakeNote.swift in Sources */,
-				74C3AC6323132CA300CD4C1A /* NoteField.swift in Sources */,
 				749CA48523144AEF00C2E28A /* AlertView.swift in Sources */,
 				74C3AC6123131FBB00CD4C1A /* Constants.swift in Sources */,
 				74FBBFEF21FDDA4E00E8443F /* AppDelegate.swift in Sources */,
 				74C3AC6523132F1700CD4C1A /* NoteButton.swift in Sources */,
+				74EDA65824084A4F00E11392 /* Date.swift in Sources */,
 				74FBC00C21FE379500E8443F /* NotesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

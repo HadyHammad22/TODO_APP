@@ -10,26 +10,19 @@ import UIKit
 
 class NotesCell: UITableViewCell {
     
-    @IBOutlet weak var laDate: UILabel!
-    @IBOutlet weak var laText: UITextView!
-    @IBOutlet weak var laTitle: UILabel!
-    @IBOutlet weak var buDelete: UIButton!
-    @IBOutlet weak var buEdit: UIButton!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var noteTextLbl: UITextView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var editBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    func setNotes(note:Note){
-        
-        laTitle.text=note.title
-        laText.text=note.details
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        //formatter.dateFormat = "mm/dd/yy h:mm a"
-        let now = formatter.string(from: note.date_save! as Date)
-        laDate.text = now
-        
+    func configureNote(note:Note){
+        titleLbl.text=note.title
+        noteTextLbl.text=note.details
+        timeLbl.text = note.date_save!.calendarTimeSinceNow()
     }
 }

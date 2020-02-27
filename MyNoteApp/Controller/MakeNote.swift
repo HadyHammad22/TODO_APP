@@ -10,48 +10,68 @@ import UIKit
 
 class MakeNote: UIViewController {
     
-    @IBOutlet weak var noteTitle: UITextField!
-    @IBOutlet weak var noteText: UITextView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    var editedNote:Note?
+    // MARK :- Instance
+    static func instance () -> MakeNote{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "MakeNote") as! MakeNote
+    }
     
+    // MARK :- Outlets
+    @IBOutlet weak var titleTxtField: UITextField!
+    @IBOutlet weak var noteTxtView: UITextView!
+    @IBOutlet weak var noteImage: UIImageView!
+    
+    // MARK :- Instance Variables
+    var editedNote : Note?
+    
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        noteTxtView.textColor = .lightGray
+        noteTxtView.delegate = self
         if let note = editedNote{
-            self.navigationBar.topItem?.title = "Edit Note"
-            noteTitle.text = note.title
-            noteText.text = note.details
+            titleTxtField.text = note.title
+            noteTxtView.text = note.details
         }
     }
     
     @IBAction func buSave(_ sender: Any) {
-        
-        if noteTitle.text == ""{
-            AlertView.instance.showAlert(title: "Failure", message: "Title should filled", alertType: .failure)
+        if titleTxtField.text!.isEmpty{
+            AlertView.instance.showAlert(title: "Failure", message: "Please Enter The Title", alertType: .failure)
             return
         }
-        
-        if noteText.text == ""{
-            AlertView.instance.showAlert(title: "Failure", message: "Note text should filled", alertType: .failure)
+        if noteTxtView.text!.isEmpty{
+            AlertView.instance.showAlert(title: "Failure", message: "Please Enter The Note Text", alertType: .failure)
             return
         }
         var newNote:Note?
-        
         if let note = editedNote{
             newNote=note
         }else{
             newNote = Note(context: context)
         }
-
-        newNote?.title = noteTitle.text
-        newNote?.details = noteText.text
+        newNote?.title = titleTxtField.text
+        newNote?.details = noteTxtView.text
         newNote?.date_save = NSDate() as Date
-        
         ad.saveContext()
-        noteTitle.text = ""
-        noteText.text = ""
+        titleTxtField.text = ""
+        noteTxtView.text = ""
         AlertView.instance.showAlert(title: "Success", message: "Note Added Successufully", alertType: .success)
-        
     }
 }
 
+extension MakeNote: UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Enter note text..."
+            textView.textColor = .lightGray
+        }
+    }
+}

@@ -34,9 +34,7 @@ class AlertView: UIView {
         img.layer.cornerRadius = 30
         img.layer.borderColor = UIColor.white.cgColor
         img.layer.borderWidth = 2
-        
         alertView.layer.cornerRadius = 10
-        
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }

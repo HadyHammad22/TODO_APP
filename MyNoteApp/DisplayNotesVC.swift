@@ -8,39 +8,68 @@
 
 import UIKit
 import CoreData
-class DisplayNotesVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class DisplayNotesVC: UIViewController{
     
-    var listOfNotes=[Note]()
-    
+    // MARK :- Outlets
     @IBOutlet weak var notesTable: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    // MARK :- Instance Variables
+    var listOfNotes = [Note]()
+    var currentNotesArray = [Note]()
+    
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadNotes()
-        
         notesTable.delegate=self
         notesTable.dataSource=self
-        
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        searchBar.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadNotes()
+    }
+    
+    func loadNotes(){
+        let fetchedData:NSFetchRequest<Note> = Note.fetchRequest()
+        do{
+            listOfNotes = try context.fetch(fetchedData)
+            currentNotesArray = listOfNotes
+            notesTable.reloadData()
+        }catch{
+            print("can't load the data from database")
+        }
+    }
+    
+}
+
+extension DisplayNotesVC: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else{
+            currentNotesArray = listOfNotes
+            notesTable.reloadData()
+            return
+        }
+        currentNotesArray = listOfNotes.filter({ note -> Bool in
+            note.title!.lowercased().contains(searchText.lowercased())
+        })
+        notesTable.reloadData()
+    }
+}
+
+extension DisplayNotesVC: UITableViewDelegate, UITableViewDataSource{
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listOfNotes.count
+        return currentNotesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NotesCell
-        cell.setNotes(note: listOfNotes[indexPath.row])
-        
-        cell.buDelete.tag=indexPath.row
-        cell.buDelete.addTarget(self, action: #selector(buDeletePress(_:)), for: .touchUpInside)
-        
-        cell.buEdit.tag=indexPath.row
-        cell.buEdit.addTarget(self, action: #selector(buEditPress(_:)), for: .touchUpInside)
-        
+        cell.configureNote(note: currentNotesArray[indexPath.row])
+        cell.deleteBtn.tag=indexPath.row
+        cell.deleteBtn.addTarget(self, action: #selector(buDeletePress(_:)), for: .touchUpInside)
+        cell.editBtn.tag=indexPath.row
+        cell.editBtn.addTarget(self, action: #selector(buEditPress(_:)), for: .touchUpInside)
         return cell
     }
     
@@ -49,37 +78,18 @@ class DisplayNotesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     @objc func buDeletePress(_ sender:UIButton){
-        print("index\(sender.tag)")
-        context.delete(listOfNotes[sender.tag])
+        context.delete(currentNotesArray[sender.tag])
         ad.saveContext()
         loadNotes()
     }
     
     @objc func buEditPress(_ sender:UIButton){
-        performSegue(withIdentifier: "EditOrAddSegway", sender: listOfNotes[sender.tag]) 
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditOrAddSegway"{
-            if let EditOrAdd = segue.destination as? MakeNote{
-                if let myNote = sender as? Note{
-                    EditOrAdd.editedNote = myNote
-                }
-            }
-        }
+        let makeNoteVC = MakeNote.instance()
+        makeNoteVC.editedNote = currentNotesArray[sender.tag]
+        self.navigationController?.pushViewController(makeNoteVC, animated: true)
     }
     
-    @IBAction func buAdd(_ sender: Any) {
-        performSegue(withIdentifier: "EditOrAddSegway", sender: nil)
-    }
-    
-    func loadNotes(){
-        let fetchedData:NSFetchRequest<Note> = Note.fetchRequest()
-        do{
-            listOfNotes = try context.fetch(fetchedData)
-            notesTable.reloadData()
-        }catch{
-            print("can't load the data from database")
-        }
-        
+    @IBAction func buWriteNote(_ sender: Any) {
+        self.navigationController?.pushViewController(MakeNote.instance(), animated: true)
     }
 }
